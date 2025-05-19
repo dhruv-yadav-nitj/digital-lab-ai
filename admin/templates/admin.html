@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Submit New Lab Manual</title>
+</head>
+
+<body>
+    <h2>Submit New Lab Manual</h2>
+
+    <form action="/submit" method="POST">
+        <label for="id">Manual ID:</label><br>
+        <input type="text" name="id" required><br><br>
+
+        <label for="title">Title:</label><br>
+        <input type="text" name="title" required><br><br>
+
+        <label for="apparatus">Apparatus:</label><br>
+        <textarea name="apparatus" rows="3" required></textarea><br><br>
+
+        <label for="theory">Theory:</label><br>
+        <textarea name="theory" rows="4" required></textarea><br><br>
+
+        <label for="procedures">Procedure:</label><br>
+        <textarea name="procedures" rows="4" required></textarea><br><br>
+
+        <label for="precautions">Precautions:</label><br>
+        <textarea name="precautions" rows="3" required></textarea><br><br>
+
+        <button type="submit">Submit Manual</button>
+    </form>
+</body>
+
+</html>

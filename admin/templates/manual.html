@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ manual.title }}</title>
+    <style>
+        iframe {
+            width: 100%;
+            max-width: 500px;
+            height: 280px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>{{ manual.title }}</h1>
+    <p><strong>ID:</strong> {{ manual.id }}</p>
+    <p><strong>Apparatus:</strong><br> {{ manual.apparatus | replace('\n', '<br>') | safe }}</p>
+    <p><strong>Theory:</strong><br> {{ manual.theory | replace('\n', '<br>') | safe }}</p>
+    <p><strong>Procedure:</strong><br> {{ manual.procedures | replace('\n', '<br>') | safe }}</p>
+    <p><strong>Precautions:</strong><br> {{ manual.precautions | replace('\n', '<br>') | safe }}</p>
+
+    <hr>
+
+    <h2>Related YouTube Videos</h2>
+    {% if videos %}
+    {% for video in videos %}
+    <h3>{{ video.title }}</h3>
+    <iframe src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
+    {% endfor %}
+    {% else %}
+    <p>No related videos found.</p>
+    {% endif %}
+
+    <hr> 
+    <a href="{{ url_for('chat_redirect', manual_id=manual.id) }}" target="_blank">
+        Chat with AI Button 
+    </a>
+</body>
+
+</html>

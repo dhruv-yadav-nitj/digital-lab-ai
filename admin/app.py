@@ -105,8 +105,8 @@ def chat_redirect(manual_id):
     return redirect(f'http://{streamlit_app}/?id={manual_id}')
 
 
-if __name__ == '__main__':
-    server = Server(app.wsgi_app)
-    server.watch('templates/')
-    server.watch('static/')
-    server.serve(debug=True, port=5000)
+# if __name__ == '__main__':
+#     server = Server(app.wsgi_app)
+#     server.watch('templates/')
+#     server.watch('static/')
+#     server.serve(debug=True, port=5000)

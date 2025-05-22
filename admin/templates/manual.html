@@ -4,30 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <title>{{ manual.title }}</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/atom-solid.png') }}">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/0de0c57aa6.js" crossorigin="anonymous"></script>
-    <style>
-        .video-scroll-container {
-            overflow-x: auto;
-            display: flex;
-            gap: 1rem;
-            scroll-behavior: smooth;
-        }
 
-        .video-container {
-            flex: 0 0 auto;
-            width: 350px;
-            height: 200px;
-        }
-
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/manual.css') }}">
 </head>
 
 <body class="bg-light d-flex flex-column min-vh-100">
@@ -88,32 +72,23 @@
         <div id="tutorials" class="mt-5">
             <h3 class="mb-4 text-center">Related YouTube Videos</h3>
             {% if videos %}
-            <div class="d-flex justify-content-center">
-                <div class="video-scroll-container px-2">
-                    {% for video in videos %}
-                    <div class="video-container">
+            <div class="row videos-row justify-content-center">
+                {% for video in videos %}
+                <div class="col-12 col-md-6 col-lg-4 video-card">
+                    <div class="video-thumbnail">
                         <iframe src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
                     </div>
-                    {% endfor %}
                 </div>
+                {% endfor %}
             </div>
             {% else %}
-            <p class="text-center">No related videos found.</p>
+            <p class="text-center text-muted">No related videos found.</p>
             {% endif %}
         </div>
     </div>
 
     <!-- Footer OUTSIDE the container -->
-    <footer class="bg-primary text-white text-center py-3 mt-auto">
-        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-            <div>Made in NITJ</div>
-            <div>
-                <a href="https://github.com/yourusername" target="_blank" class="text-white text-decoration-none ms-2">
-                    <i class="fab fa-github fa-lg"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
+    {% include 'footer.html' %}
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

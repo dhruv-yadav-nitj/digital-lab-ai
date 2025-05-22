@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Submit New Lab Manual</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/atom-solid.png') }}">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -46,7 +48,8 @@
 
                             <div class="mb-3">
                                 <label for="apparatus" class="form-label">Apparatus</label>
-                                <textarea class="form-control" name="apparatus" id="apparatus" rows="3" required></textarea>
+                                <textarea class="form-control" name="apparatus" id="apparatus" rows="3"
+                                    required></textarea>
                             </div>
 
                             <div class="mb-3">
@@ -56,12 +59,14 @@
 
                             <div class="mb-3">
                                 <label for="procedures" class="form-label">Procedure</label>
-                                <textarea class="form-control" name="procedures" id="procedures" rows="10" required></textarea>
+                                <textarea class="form-control" name="procedures" id="procedures" rows="10"
+                                    required></textarea>
                             </div>
 
                             <div class="mb-3">
                                 <label for="precautions" class="form-label">Precautions</label>
-                                <textarea class="form-control" name="precautions" id="precautions" rows="3" required></textarea>
+                                <textarea class="form-control" name="precautions" id="precautions" rows="3"
+                                    required></textarea>
                             </div>
 
                             <button type="submit" class="btn btn-primary w-100">Submit Manual</button>
@@ -73,16 +78,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-primary text-white text-center py-3 mt-auto">
-        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-            <div>Made in NITJ</div>
-            <div>
-                <a href="https://github.com/yourusername" target="_blank" class="text-white text-decoration-none ms-2">
-                    <i class="fab fa-github fa-lg"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
+    {% include 'footer.html' %}
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

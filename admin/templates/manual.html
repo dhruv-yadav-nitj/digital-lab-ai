@@ -24,7 +24,7 @@
                 <span>Digital Lab - NITJ</span>
             </a>
             <div class="ms-auto d-flex">
-                <a href="#" class="btn btn-outline-light me-2">
+                <a href="{{ manual.link }}" class="btn btn-outline-light me-2">
                     <i class="fa-solid fa-download me-1"></i>Download
                 </a>
                 <a href="#tutorials" class="btn btn-outline-light me-2">
@@ -46,6 +46,12 @@
 
                 <p><strong>ID:</strong> {{ manual.id }}</p>
 
+                <!-- NEW -->
+                <div class="mb-3">
+                    <h5>Outcomes</h5>
+                    <p>{{ manual.outcomes | replace('\n', '<br>') | safe }}</p>
+                </div>
+
                 <div class="mb-3">
                     <h5>Apparatus</h5>
                     <p>{{ manual.apparatus | replace('\n', '<br>') | safe }}</p>
@@ -62,8 +68,19 @@
                 </div>
 
                 <div class="mb-3">
+                    <h5>Result</h5>
+                    <p>{{ manual.result | replace('\n', '<br>') | safe }}</p>
+                </div>
+
+                <div class="mb-3">
                     <h5>Precautions</h5>
                     <p>{{ manual.precautions | replace('\n', '<br>') | safe }}</p>
+                </div>
+
+                <!-- NEW -->
+                <div class="mb-3">
+                    <h5>Q&A</h5>
+                    <pre class="bg-light p-3 rounded">{{ manual.qna }}</pre>
                 </div>
             </div>
         </div>

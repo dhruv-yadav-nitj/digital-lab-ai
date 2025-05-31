@@ -34,22 +34,26 @@ def get_connection():
 def send_data_to_db(data):
     conn = get_connection()
     query = '''
-        INSERT INTO manual (id, title, apparatus, theory, procedures, precautions)
-        VALUES
-        (%s, %s, %s, %s, %s, %s)
-        '''
+        INSERT INTO manual (id, outcomes, title, apparatus, theory, procedures, result, precautions, qna, link)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    '''
     params = (
         data['id'],
+        data['outcomes'],
         data['title'],
         data['apparatus'],
         data['theory'],
         data['procedures'],
-        data['precautions']
+        data['result'],
+        data['precautions'],
+        data['qna'],
+        data['link']
     )
 
     with conn.cursor() as cursor:
         cursor.execute(query, params)
         conn.commit()
+
 
 
 def get_manual(manual_id):

@@ -84,16 +84,18 @@ def view_manual(id):
 def api_get_manual(manual_id):
     manual = get_manual(manual_id)
     if manual:
-        return jsonify(
-            {
-                'id': manual['id'],
-                'title': manual['title'],
-                'apparatus': manual['apparatus'],
-                'theory': manual['theory'],
-                'procedures': manual['procedures'],
-                'precautions': manual['precautions']
-            }
-        )
+        return jsonify({
+            'id': manual['id'],
+            'outcomes': manual['outcomes'],
+            'title': manual['title'],
+            'apparatus': manual['apparatus'],
+            'theory': manual['theory'],
+            'procedures': manual['procedures'],
+            'result': manual['result'],
+            'precautions': manual['precautions'],
+            'qna': manual['qna'],
+            'link': manual['link']
+        })
     else:
         return jsonify({
             'error': 'Manual Not Found'

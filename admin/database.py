@@ -34,8 +34,8 @@ def get_connection():
 def send_data_to_db(data):
     conn = get_connection()
     query = '''
-        INSERT INTO manual (id, outcomes, title, apparatus, theory, procedures, result, precautions, qna, link)
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        INSERT INTO manual (id, outcomes, title, apparatus, theory, procedures, result, precautions, qna, link, video_link)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     '''
     params = (
         data['id'],
@@ -47,7 +47,8 @@ def send_data_to_db(data):
         data['result'],
         data['precautions'],
         data['qna'],
-        data['link']
+        data['link'],
+        data['video_link']
     )
 
     with conn.cursor() as cursor:

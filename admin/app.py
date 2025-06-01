@@ -94,7 +94,8 @@ def api_get_manual(manual_id):
             'result': manual['result'],
             'precautions': manual['precautions'],
             'qna': manual['qna'],
-            'link': manual['link']
+            'link': manual['link'],
+            'video_link': manual['video_link']
         })
     else:
         return jsonify({

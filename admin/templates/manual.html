@@ -27,6 +27,9 @@
                 <a href="{{ manual.link }}" class="btn btn-outline-light me-2">
                     <i class="fa-solid fa-download me-1"></i>Download
                 </a>
+                <a href="{{ manual.video_link }}" target="_blank" class="btn btn-outline-light me-2">
+                    <i class="fa-solid fa-circle-play me-1"></i>Watch Video
+                </a>
                 <a href="#tutorials" class="btn btn-outline-light me-2">
                     <i class="fa-brands fa-youtube me-1"></i>Tutorial
                 </a>
@@ -80,7 +83,7 @@
                 <!-- NEW -->
                 <div class="mb-3">
                     <h5>Q&A</h5>
-                    <pre class="bg-light p-3 rounded">{{ manual.qna }}</pre>
+                    <p>{{ manual.qna | replace('\n', '<br>') | safe }}</p>
                 </div>
             </div>
         </div>
